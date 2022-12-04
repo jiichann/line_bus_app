@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import re
 import datetime
 import json
-json_open = open('bus\linebot.json', 'r')
+json_open = open('bus/linebot.json')
 
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.select import By
