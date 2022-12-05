@@ -11,7 +11,6 @@ import json
 json_open = open('linebot.json')
 
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.select import By
 
 
 # try:
