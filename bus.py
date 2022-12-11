@@ -11,8 +11,8 @@ import json
 
 from selenium.webdriver.chrome.options import Options
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, StickerSendMessage
-@handler.add(MessageEvent, message=TextMessage)
-json_open = open('linebot.json')
+# @handler.add(MessageEvent, message=TextMessage)
+# json_open = open('linebot.json')
 
 
 
