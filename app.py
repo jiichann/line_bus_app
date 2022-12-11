@@ -18,7 +18,7 @@ YOUR_CHANNEL_ACCESS_TOKEN = "VZAuJgMTkAG/U1IXO56PIFpq3slBd8yfd6bTIEh+liHNoxBLmv1
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('VZAuJgMTkAG/U1IXO56PIFpq3slBd8yfd6bTIEh+liHNoxBLmv1TljelFGLZ+zzdJuf4Tnm7FkhiSNZEeMl/ZVvQr9ulx7BpIzkYYSas3p9XM3/W5hx9QzjkNubntilL5+1bBHSh8DwFTGr33EQPNQdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('https://api.render.com/deploy/srv-cdrht4arrk0dockr07c0?key=EC_OIGWMPLQ')
+handler = WebhookHandler('https://line-bus-app.onrender.com/webhook')
 
 
 @app.route("/sample", methods=['GET'])
