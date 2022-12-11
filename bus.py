@@ -8,9 +8,12 @@ from bs4 import BeautifulSoup
 import re
 import datetime
 import json
-json_open = open('linebot.json')
 
 from selenium.webdriver.chrome.options import Options
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, StickerSendMessage
+@handler.add(MessageEvent, message=TextMessage)
+json_open = open('linebot.json')
+
 
 
 # try:
