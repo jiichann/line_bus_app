@@ -48,28 +48,44 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
-    cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=00291944&goal=00087910&device=pc"
-    # requetsを使ってサイト情報を取得
-    result = requests.get(cur_url)
-    # 日本語の文字化け防止
-    result.encoding = result.apparent_encoding
-    # 要素を解析
-    bs = BeautifulSoup(result.text, "html.parser")
-    for time in bs.find_all(class_ = "startGoalTime"):
-        for eraser1 in bs.find_all(class_ = "start"):
-            eraser1.clear()
-        for eraser2 in bs.find_all(class_ = "goal"):
-            eraser2.clear()
-    
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text= time.text))
+    text = event.message.text
+    if text == "九大学研都市駅→九大ビッグオレンジ":
+        cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=00291944&goal=00087910&device=pc"
+        # requetsを使ってサイト情報を取得
+        result = requests.get(cur_url)
+        # 日本語の文字化け防止
+        result.encoding = result.apparent_encoding
+        # 要素を解析
+        bs = BeautifulSoup(result.text, "html.parser")
+        for time in bs.find_all(class_ = "startGoalTime"):
+            for eraser1 in bs.find_all(class_ = "start"):
+                eraser1.clear()
+            for eraser2 in bs.find_all(class_ = "goal"):
+                eraser2.clear()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text= time.text))
+
+    elif text == "九大ビッグオレンジ→九大学研都市駅":
+        cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=00087910&goal=00291944&&device=pc"
+        # requetsを使ってサイト情報を取得
+        result = requests.get(cur_url)
+        # 日本語の文字化け防止
+        result.encoding = result.apparent_encoding
+        # 要素を解析
+        bs = BeautifulSoup(result.text, "html.parser")
+        for time in bs.find_all(class_ = "startGoalTime"):
+            for eraser1 in bs.find_all(class_ = "start"):
+                eraser1.clear()
+            for eraser2 in bs.find_all(class_ = "goal"):
+                eraser2.clear()
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text= time.text))
 
 
 
 
 # if __name__ == "__main__":
-#  # app.run()
-#     port = int(os.getenv("PORT", 5000))
-#     app.run(host="0.0.0.0", port=port)
+#     app.run()
+    
