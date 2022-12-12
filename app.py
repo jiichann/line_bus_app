@@ -82,10 +82,18 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= time.text))
+    
+    elif text == "入力":
+        line_bot_api.reply_message(
+                event.reply_token,
+                input(TextSendMessage(text= "乗車するバス停を選択してください")))
+                
 
 
+        line_bot_api.reply_message(
+                event.reply_token,
+                input(TextSendMessage(text= "下車するバス停を入力してください")))
+        
 
 
-# if __name__ == "__main__":
-#     app.run()
     
