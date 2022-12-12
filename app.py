@@ -10,7 +10,9 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
-import bus
+import requests
+from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.options import Options
 
 YOUR_CHANNEL_ACCESS_TOKEN = "VZAuJgMTkAG/U1IXO56PIFpq3slBd8yfd6bTIEh+liHNoxBLmv1TljelFGLZ+zzdJuf4Tnm7FkhiSNZEeMl/ZVvQr9ulx7BpIzkYYSas3p9XM3/W5hx9QzjkNubntilL5+1bBHSh8DwFTGr33EQPNQdB04t89/1O/w1cDnyilFU="
 
@@ -46,12 +48,15 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    options = Options()
+    
     line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+        # event.reply_token,
+        # TextSendMessage(text=event.message.text)
+        TextSendMessage(text='Hello, world'))
 
 
-if __name__ == "__main__":
- # app.run()
-    port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+# if __name__ == "__main__":
+#  # app.run()
+#     port = int(os.getenv("PORT", 5000))
+#     app.run(host="0.0.0.0", port=port)
