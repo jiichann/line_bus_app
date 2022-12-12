@@ -7,7 +7,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import datetime
-import json
 
 from selenium.webdriver.chrome.options import Options
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, FollowEvent, FlexSendMessage, StickerSendMessage
