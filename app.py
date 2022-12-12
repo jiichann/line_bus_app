@@ -86,13 +86,13 @@ def handle_message(event):
     elif text == "入力":
         line_bot_api.reply_message(
                 event.reply_token,
-                input(TextSendMessage(text= "乗車するバス停を選択してください")))
-                
+                TextSendMessage(text= "乗車するバス停を選択してください"))
+        input(text = "入力してください")
 
 
         line_bot_api.reply_message(
                 event.reply_token,
-                input(TextSendMessage(text= "下車するバス停を入力してください")))
+                TextSendMessage(text= "下車するバス停を入力してください"))
         
 
 
