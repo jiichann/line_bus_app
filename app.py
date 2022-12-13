@@ -62,7 +62,8 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-            result = "".join(time.text)
+            list = map(str, time.text)
+            result = "\n".join(list)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= result))
@@ -80,7 +81,8 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-            result = "\n".join(time.text)
+            list = map(str, time)
+            result = "\n".join(list.text)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= result))
