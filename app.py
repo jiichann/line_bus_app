@@ -62,7 +62,7 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-            result = "\n".join(time)
+            result = "".join(time.text)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= result))
