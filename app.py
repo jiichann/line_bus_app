@@ -65,7 +65,7 @@ def handle_message(event):
             result = "\n".join(time)
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text= result.text))
+                TextSendMessage(text= result))
 
     elif text == "九大ビッグオレンジ→九大学研都市駅":
         cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=00087910&goal=00291944&&device=pc"
@@ -80,10 +80,10 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-            result = "\n".join(time)
+            result = "\n".join(time.text)
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text= result.text))
+                TextSendMessage(text= result))
     
     elif text == "入力":
         line_bot_api.reply_message(
