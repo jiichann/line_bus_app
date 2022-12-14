@@ -62,11 +62,11 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-        list = map(str, time.text)
-        result = "\n".join(list)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text= result))
+            list = map(str, time.text)
+            result = "\n".join(list)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text= result))
 
     elif text == "九大ビッグオレンジ→九大学研都市駅":
         cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=00087910&goal=00291944&&device=pc"
@@ -81,11 +81,11 @@ def handle_message(event):
                 eraser1.clear()
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
-        list = map(str, time.text)
-        result = ", ".join(list)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text= result))
+            list = map(str, time.text)
+            result = ", ".join(list)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text= result))
     
     elif text == "入力":
         line_bot_api.reply_message(
@@ -99,5 +99,28 @@ def handle_message(event):
                 TextSendMessage(text= "下車するバス停を入力してください"))
         
 
-
-    
+# 元岡郵便局前：00291912
+# 元岡小学校前：00291911
+# 産学連携交流センター：00087909
+# 九大中央図書館：00291995
+# 九大イーストゾーン：00291994
+# 九大東ゲート：00291993
+# 九大理学部：00090936
+# 九大工学部前：00087911
+# 九大農学部：00291996
+# 九大船舶・航空実験棟：00090773
+# 九大総合グラウンド：00090774
+# 伊都営業所：00291992
+# 山崎（福岡県）：00291884
+# 周船寺東口：00291883
+# 周船寺：00291882
+# 泉（福岡市）：00291947
+# 富士見（福岡県）：00291948
+# たろう保育園前：00291949
+# 元岡農協前：00291950
+# 九大伊都協奏館：00291957
+# 桑原公民館：00291955
+# 横浜西：00291946
+# 工芸会ワークセンター：00291915
+# 玄洋高校：00291914
+# 今出（福岡県）：00291913
