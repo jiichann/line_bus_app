@@ -91,7 +91,6 @@ def handle_message(event):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= "乗車するバス停を入力してください"))
-        cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=" + start_number + "&goal=" + goal_number + "&&device=pc"
         if text == "九大学研都市駅":
             start_number = "00291944"
             line_bot_api.reply_message(
@@ -99,6 +98,7 @@ def handle_message(event):
                 TextSendMessage(text= "下車するバス停を入力してください"))
             if text == "九大ビッグオレンジ":
                 goal_number = "00087910"
+                cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=" + start_number + "&goal=" + goal_number + "&&device=pc"
                 result = requests.get(cur_url)
                 # 日本語の文字化け防止
                 result.encoding = result.apparent_encoding
