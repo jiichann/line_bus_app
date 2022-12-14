@@ -63,7 +63,7 @@ def handle_message(event):
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
             list = map(str, time.text)
-            result = "\n".join(list)
+            result = "".join(list)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= result))
@@ -82,7 +82,7 @@ def handle_message(event):
             for eraser2 in bs.find_all(class_ = "goal"):
                 eraser2.clear()
             list = map(str, time.text)
-            result = ", ".join(list)
+            result = "".join(list)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= result))
@@ -90,15 +90,35 @@ def handle_message(event):
     elif text == "入力":
         line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text= "乗車するバス停を選択してください"))
-        input(text = "入力してください")
-
-
-        line_bot_api.reply_message(
+                TextSendMessage(text= "乗車するバス停を入力してください"))
+        cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=" + start_number + "&goal=" + goal_number + "&&device=pc"
+        if text == "九大学研都市駅":
+            start_number = "00291944"
+            line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= "下車するバス停を入力してください"))
-        
+            if text == "九大ビッグオレンジ":
+                goal_number = "00087910"
+                result = requests.get(cur_url)
+                # 日本語の文字化け防止
+                result.encoding = result.apparent_encoding
+                # 要素を解析
+                bs = BeautifulSoup(result.text, "html.parser")
+                for time in bs.find_all(class_ = "startGoalTime"):
+                    for eraser1 in bs.find_all(class_ = "start"):
+                        eraser1.clear()
+                    for eraser2 in bs.find_all(class_ = "goal"):
+                        eraser2.clear()
+                    list = map(str, time.text)
+                    result = "".join(list)
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TextSendMessage(text= result))
 
+
+
+
+       
 # 元岡郵便局前：00291912
 # 元岡小学校前：00291911
 # 産学連携交流センター：00087909
