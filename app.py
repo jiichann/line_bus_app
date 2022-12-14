@@ -92,10 +92,10 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text= "乗車するバス停を入力してください"))
         if text == "九大学研都市駅":
-            start_number = "00291944"
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text= "下車するバス停を入力してください"))
+            start_number = "00291944"
             if text == "九大ビッグオレンジ":
                 goal_number = "00087910"
                 cur_url = "https://transfer.navitime.biz/showa-bus/extif/TransferSearchIF?startName=&goalName=&start=" + start_number + "&goal=" + goal_number + "&&device=pc"
